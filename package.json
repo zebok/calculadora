@@ -1,4 +1,5 @@
 {
+  "homepage": "http://zebok.github.io/calculadora",
   "name": "calculadora",
   "version": "0.1.0",
   "private": true,
@@ -39,7 +40,5 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  },
-
-  "homepage": "http://zebok.github.io/calculadora"
+  }
 }

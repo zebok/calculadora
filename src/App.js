@@ -13,7 +13,10 @@ function App() {
   );
 
   const calcularResultado = () => {
-          setInput(eval(input))
+        if (input){
+                setInput(eval(input))
+        }
+          
   };
 
   const limpiarPantalla = () => (

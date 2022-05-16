@@ -1,24 +1,59 @@
-import logo from './logo.svg';
 import './App.css';
+import Tecla from './components/Tecla.js'
+import Clear from './components/Clear.js'
+import Pantalla from './components/Pantalla.js'
+import { useState } from 'react';
 
 function App() {
+
+  const [input, setInput] = useState('');
+
+  const agregarInput = (valor) => (
+          setInput(input + valor)
+  );
+
+  const calcularResultado = () => {
+          setInput(eval(input))
+  };
+
+  const limpiarPantalla = () => (
+          setInput('')
+  )
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='calculadora'>
+        
+                <Pantalla input={input || " "} />
+        
+        <div className='contenedor-teclas'>
+          <div className='fila-calculadora'>
+                  <Tecla clic={agregarInput} >9</Tecla>
+                  <Tecla clic={agregarInput}>8</Tecla>
+                  <Tecla clic={agregarInput}>7</Tecla>
+                  <Tecla clic={agregarInput}>/</Tecla>
+          </div>
+          <div className='fila-calculadora'>
+                  <Tecla clic={agregarInput}>6</Tecla>
+                  <Tecla clic={agregarInput}>5</Tecla>
+                  <Tecla clic={agregarInput}>4</Tecla>
+                  <Tecla clic={agregarInput}>*</Tecla>
+          </div>
+          <div className='fila-calculadora'>
+                  <Tecla clic={agregarInput}>3</Tecla>
+                  <Tecla clic={agregarInput}>2</Tecla>
+                  <Tecla clic={agregarInput}>1</Tecla>
+                  <Tecla clic={agregarInput}>-</Tecla>
+          </div>
+          <div className='fila-calculadora'>
+                  <Tecla clic={agregarInput}>0</Tecla>
+                  <Tecla clic={calcularResultado}>=</Tecla>
+                  <Tecla clic={agregarInput}>.</Tecla>
+                  <Tecla clic={agregarInput}>+</Tecla>
+          </div>
+                  <Clear clic={limpiarPantalla}>Limpiar</Clear>
+        </div>
+      </div>
   );
 }
 
